@@ -1,0 +1,86 @@
+---
+title: "0_prep_data.Rmd"
+author: "Andrea Estandia"
+date: "11/01/2023"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup}
+config <- config::get()
+# Knitr settings: 
+knitr::opts_knit$set(root.dir = config$path$root)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+```{r}
+box::use(patchwork[...])
+box::use(ggplot2[...])
+box::use(dplyr[...])
+box::use(tidyverse[...])
+```
+
+Read samples present in the 600K dataset
+```{r}
+bto_600K <- 
+  readr::read_csv(
+    file.path(config$path$data, 
+              "dfs",
+              "ind_600K.csv")
+)
+```
+
+Read the samples present in the 600K dataset
+```{r}
+bto_600K <- 
+  readr::read_csv(
+    file.path(config$path$data, 
+              "dfs",
+              "ind_600K.csv")
+)
+```
+
+Read the immigrant status
+```{r}
+imm_res <- 
+  readr::read_csv(
+    file.path(config$path$data, 
+              "dfs",
+              "immigrant_resident.csv")
+)
+```
+
+Read nb information 
+```{r}
+nb <- 
+  readr::read_csv(
+    file.path(config$path$data, 
+              "dfs",
+              "nb_info.csv")
+)
+```
+
+Join dataframes
+```{r}
+df_600K <- 
+  bto_600K |>
+  dplyr::left_join(imm_res, by="bto_ring") |>
+  dplyr::left_join(nb, by="nb") |>
+  dplyr::select(bto_ring, imm_res, x, y)
+
+metadata <- 
+  df_600K |>
+  dplyr::select(bto_ring, x, y) |>
+  dplyr::rename(sampleID=bto_ring)
+```
+
+```{r}
+write.table(metadata, 
+            file.path(config$path$data, 
+              "locator_metadata",
+              "metadata"),
+            quote = F,
+            row.names = F
+            )
+```
+
