@@ -20,7 +20,6 @@ This repository includes the following main features,
 - An RStudio project [`great-tit_genomics_ml.Rproj`](./great-tit_genomics_ml.Rproj)
 - Package dependency management using [`renv`](https://github.com/rstudio/renv/)
 - Configuration using [`config`](https://github.com/rstudio/config)
-- A [`analysis`](./analysis) directory with the code necessary to reproduce the analysis and figures in this paper.
 - A [`R`](./R) folder for R source code and reusable functions
 
 
@@ -91,7 +90,7 @@ Depending on your system, this may take a while, and you will likely be prompted
 
 ## Bugs and Issues
 
-If you encounter any bugs or issues, please [open an issue](https://github.com/nilomr/birdsong-demography/issues/new/choose). If possible, include a minimal reproducible example and/or screenshots to illustrate the problem.
+If you encounter any bugs or issues, please [open an issue](https://github.com/andreaestandia/great-tit_genomics_ml/issues/new/choose). If possible, include a minimal reproducible example and/or screenshots to illustrate the problem.
 
 
 <br>

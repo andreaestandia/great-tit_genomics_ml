@@ -1,0 +1,55 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "locator"
+description = ""
+version = ""
+authors = [{ name = "Andrea Estandia and Nilo Merino Recalde", email = "andrea.estandia@biology.ox.ac.uk" }]
+classifiers = [
+    'License :: OSI Approved :: MIT License',
+    'Development Status :: 4 - Beta',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+    "numpy",
+    "tensorflow",
+    "h5py",
+    "scikit-allel",
+    "matplotlib",
+    "scipy",
+    "tqdm",
+    "pandas",
+    "zarr",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+dev = ["ipywidgets", "ipykernel", "pytest", "nox", "black"]
+test = ["pytest >=7"]
+doc = [
+    "sphinx <5, >=3.5.4",
+    "sphinx-copybutton",
+    "sphinx_book_theme == 0.3.3",
+    "myst-nb ==  0.17",
+    "myst-parser == 0.18",
+]
+
+[project.urls]
+Source = "https://github.com/nilomr/pykanto"
+Documentation = "https://nilomr.github.io/pykanto"
+
+[project.scripts]
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+float_to_top = 'True'
